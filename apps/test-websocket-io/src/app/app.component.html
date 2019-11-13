@@ -1,8 +1,10 @@
 <div style="text-align:center">
-  <h1>Welcome to test-websocket-io!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
-  />
+  <div class="">There are currentyl <strong>{{users}}</strong> users online. Start chatting!</div>
+  <ul>
+    <li *ngFor="let message of messages">{{message}}</li>
+  </ul>
 </div>
-<div>Message: {{ hello$ | async | json }}</div>
+<input spellcheck="true" autoComplete="true" autocorrect="true" rows="1" class="chat-input" [(ngModel)]="message" placeholder="type message..." (keyup.enter)="addChat()">
+<div>
+  <button (click)="addChat()">Add new user</button>
+</div>
